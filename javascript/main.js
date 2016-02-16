@@ -22,10 +22,17 @@ addNewItemBtn.addEventListener('click',function(event) {
 toDoList.addEventListener('click', function(event){
   var itemRemove = event.target;
   var itemParent = event.target.parentElement;
-  // console.log(itemParent);
+  // console.log(itemParent.nodeName);
   itemRemove.style["text-decoration"] = 'line-through';
-	setTimeout(function(){ 
-		itemRemove.remove();
-		itemParent.remove();
-	}, 1000);
+  if (itemParent.nodeName != 'UL') {
+		setTimeout(function(){ 
+			itemRemove.remove();
+			itemParent.remove();
+		}, 1000);
+  } else {
+		setTimeout(function(){ 
+			itemRemove.remove();
+		}, 1000);  	
+  }
+
 })
