@@ -11,12 +11,12 @@
 var inputBox = document.getElementById('inputBox');
 var toDoList = document.querySelector('ul');
 var addNewItemBtn = document.querySelector('#btn');
-var newItem = document.createElement("li")
 
 function addNewItem() {
 	if (inputBox.value === '' || inputBox.value === inputBox.defaultValue) {
 		alert('Please add a new item.');	
 	} else {
+		var newItem = document.createElement("li")
 	  newItem.innerHTML = '<a href="#">' + inputBox.value +'</a>'
 	  toDoList.appendChild(newItem);
 	  inputBox.value = "";	
@@ -26,12 +26,12 @@ function addNewItem() {
 addNewItemBtn.addEventListener('click', addNewItem);
 // add functionality for 'enter' key
 inputBox.addEventListener('keypress', function (e) {
-    var key = e.which || e.keyCode;
-    if (key === 13) { // 13 is enter
-      addNewItem();
-    } else {
-    	// do nothing
-    }
+  var key = e.which || e.keyCode;
+  if (key === 13) { // 13 is enter
+    addNewItem();
+  } else {
+  	// do nothing
+  }
 });
 
 toDoList.addEventListener('click', function(event){
