@@ -7,27 +7,31 @@
 // The text from the input box is cleared out.
 // When the user clicks on a list item, it is removed
 // Extra Credit: - When a list item is clicked, cross it out, then remove it after 1 second.
-
-
 // get value of the text input
 var input = document.getElementById('input');
+var toDoList = document.querySelector('ul');
+var addNewItemBtn = document.querySelector('#btn');
 
-var getValue = document.querySelector('#btn');
-
-
-
-
-getValue.addEventListener('click',function(event) {
-    var newItem = document.createElement("li")
-    newItem.innerHTML = '<a href="#">' + input.value +'</a>'
-    var list = document.querySelector('ul');
-    list.appendChild(newItem);
-    input.value = "";
-
+addNewItemBtn.addEventListener('click',function(event) {
+  var newItem = document.createElement("li")
+  newItem.innerHTML = '<a href="#">' + input.value +'</a>'
+  toDoList.appendChild(newItem);
+  input.value = "";
 });
 
+toDoList.addEventListener('click', function(event){
+  var itemRemove = event.target;
+  var itemParent = event.target.parentElement;
+  // console.log(itemParent.nodeName);
+  itemRemove.style["text-decoration"] = 'line-through';
+  if (itemParent.nodeName != 'UL') {
+		setTimeout(function(){ 
+			itemParent.remove();
+		}, 1000);
+  } else {
+		setTimeout(function(){ 
+			itemRemove.remove();
+		}, 1000);  	
+  }
 
-document.querySelector('ul').addEventListener('click', function(event){
-    var itemRemove = event.target;
-    itemRemove.remove();
 })
