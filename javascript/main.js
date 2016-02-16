@@ -8,13 +8,13 @@
 // When the user clicks on a list item, it is removed
 // Extra Credit: - When a list item is clicked, cross it out, then remove it after 1 second.
 // get value of the text input
-var inputBox = document.getElementById('input');
+var inputBox = document.getElementById('inputBox');
 var toDoList = document.querySelector('ul');
 var addNewItemBtn = document.querySelector('#btn');
 var newItem = document.createElement("li")
 
 function addNewItem() {
-	if (inputBox.value == '' || inputBox.value == inputBox.defaultValue) {
+	if (inputBox.value === '' || inputBox.value === inputBox.defaultValue) {
 		alert('Please add a new item.');	
 	} else {
 	  newItem.innerHTML = '<a href="#">' + inputBox.value +'</a>'
