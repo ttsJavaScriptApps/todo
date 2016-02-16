@@ -26,7 +26,6 @@ toDoList.addEventListener('click', function(event){
   itemRemove.style["text-decoration"] = 'line-through';
   if (itemParent.nodeName != 'UL') {
 		setTimeout(function(){ 
-			itemRemove.remove();
 			itemParent.remove();
 		}, 1000);
   } else {
